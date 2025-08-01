@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import { getEntryBySlug } from "astro:content";
+const ContentData = await getEntryBySlug("IndexPage", "content-1");
+const { header, image } = ContentData?.data;
+const { Content } = await ContentData.render();
+---
+
+<div
+  class='grid items-center gap-10 lg:grid-cols-2 lg:gap-24 xl:grid-cols-[1.2fr_minmax(0,_1fr)] xl:gap-[135px]'>
+  <div class='jos' data-jos_animation='fade-right'>
+    <div>
+      <div class='mb-5'>
+        <h2>
+          {header}
+        </h2>
+      </div>
+    </div>
+    <Content />
+  </div>
+  <div class='jos relative' data-jos_animation='fade-left'>
+    <div class='rounded-[10px] bg-[#FCEDCF] p-[30px] lg:p-10 xl:p-[50px]'>
+      <Image
+        src={image}
+        alt='content-img'
+        width='426'
+        height='398'
+        class='h-auto w-full rounded-[10px]'
+      />
+    </div>
+    <Image
+      src='/assets/img/elements/content-shape-1.svg'
+      alt='content-shape-1'
+      width='168'
+      height='61'
+      class='absolute -right-16 -top-16'
+    />
+  </div>
+</div>

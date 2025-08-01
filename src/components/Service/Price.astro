@@ -1,0 +1,79 @@
+---
+import { getEntryBySlug } from "astro:content";
+import { getCollection } from "astro:content";
+import Heading from "../ui/Heading.astro";
+var PricingData = await getCollection("Pricing");
+PricingData = PricingData.filter((data) => data.slug.startsWith("plan-"));
+const IndexData = await getEntryBySlug("Pricing", "index");
+const { header } = IndexData?.data;
+---
+
+<section class='section-pricing'>
+  <div class='bg-ColorOffWhite'>
+    <div class='section-space'>
+      <div class='container-default'>
+        <Heading heading={header} MaxWidth='max-w-[600px]' />
+        <div class='grid gap-x-6 gap-y-10 md:grid-cols-2 lg:grid-cols-3'>
+          {
+            PricingData?.map(({ data }: any) => (
+              <div
+                class='jos'
+                data-jos_animation='flip-left'
+                data-jos_delay='0'>
+                <div class='hover-solid-shadow h-full'>
+                  <div class='rounded-[10px] border-2 border-ColorBlack bg-white p-7 xl:p-10 h-full'>
+                    <div class='text-center text-ColorBlack'>
+                      <span class='text-xl font-bold'>{data?.name}</span>
+                      <div class='text-[28px] font-normal leading-[2.85]'>
+                        $
+                        <span class='text-[48px] font-bold leading-[1.3] xl:text-[58px]'>
+                          {data?.price}
+                        </span>
+                        /month
+                      </div>
+                      <span class='text-sm text-ColorBlack/70'>
+                        {data?.description}
+                      </span>
+                    </div>
+
+                    <div class='my-10 h-px w-full bg-ColorBlack/10' />
+
+                    <ul class='flex flex-col gap-y-6 text-base font-semibold text-ColorBlack xl:px-[18px]'>
+                      {data?.points?.included?.map((point: string) => {
+                        return (
+                          <li class='flex gap-x-3'>
+                            <span class='text-xl'>
+                              <i class='fa-solid fa-star' />
+                            </span>
+                            {point}
+                          </li>
+                        );
+                      })}
+                      {data?.points?.excluded?.map((point: string) => {
+                        return (
+                          <li class='flex gap-x-3 text-ColorBlack/10'>
+                            <span class='text-xl'>
+                              <i class='fa-solid fa-star' />
+                            </span>
+                            {point}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                    <div class='mt-10 flex justify-center'>
+                      <a
+                        href={data?.button?.link}
+                        class='btn is-white is-rounded is-large group w-full border-2'>
+                        {data?.button?.text}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

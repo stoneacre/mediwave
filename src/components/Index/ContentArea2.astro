@@ -1,0 +1,59 @@
+---
+import { Image } from "astro:assets";
+import { getEntryBySlug } from "astro:content";
+const ContentData = await getEntryBySlug("IndexPage", "content-2");
+const { header, image, points } = ContentData?.data;
+const { Content } = await ContentData.render();
+---
+
+<div
+  class='grid items-center gap-10 lg:grid-cols-2 lg:gap-24 xl:grid-cols-[1fr_minmax(0,_1.2fr)] xl:gap-[135px]'>
+  <div class='jos lg:order-2' data-jos_animation='fade-left'>
+    <div>
+      <div class='mb-5'>
+        <h2>
+          {header}
+        </h2>
+      </div>
+    </div>
+    <Content />
+    <ul class='flex flex-col gap-5 font-semibold text-ColorBlack'>
+      {
+        points.map((point: string) => (
+          <li class="flex items-start">
+            <span class='mr-3 inline-block text-xl text-ColorBlue'>
+              <Image
+                src={"/assets/img/icons/badge.svg"}
+                height='20'
+                width='20'
+                alt='badgeIcon'
+                class='sm:w-5 w-10'
+              />
+            </span>
+            <span class="leading-tight">{point}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <div class='jos relative lg:order-1' data-jos_animation='fade-right'>
+    <div class='rounded-[10px] bg-[#BEF8FC] p-[30px] lg:p-10 xl:p-[50px]'>
+      <Image
+        src={image}
+        alt='content-img-1'
+        width='426'
+        height='398'
+        class='h-auto w-full rounded-[10px]'
+      />
+    </div>
+
+    <Image
+      src='/assets/img/elements/content-shape-2.svg'
+      alt='content-shape-1'
+      width='107'
+      height='105'
+      class='absolute -bottom-1 -left-1'
+    />
+  </div>
+</div>

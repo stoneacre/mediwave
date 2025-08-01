@@ -1,0 +1,47 @@
+---
+import { getEntryBySlug } from "astro:content";
+const Testimonial = await getEntryBySlug("IndexPage", "testimonial");
+import Header from "../ui/Heading.astro";
+import { Image } from "astro:assets";
+const { name, designation, clientWords, image } = Testimonial.data;
+---
+
+<section class='section-testimonial'>
+  <div class='bg-ColorOffWhite'>
+    <div class='section-space'>
+      <div class='container-custom'>
+        <Header heading={Testimonial.data.Header} MaxWidth='max-w-[625px]' />
+        <div
+          class='grid items-center gap-10 lg:grid-cols-2 xl:gap-20 xxl:grid-cols-[1.1fr_minmax(0,_1fr)]'>
+          <Image
+            src={image}
+            alt='testimonial-image-1'
+            width='636'
+            height='446'
+            class='jos h-auto w-full rounded-2xl'
+            data-jos_animation='fade-right'
+          />
+          <div
+            class='jos flex flex-col text-ColorBlack'
+            data-jos_animation='fade-left'>
+            <Image
+              src='/assets/img/icons/icon-blue-quote-right-reverse.svg'
+              alt='icon-blue-quote-right-reverse'
+              width='90'
+              height='60'
+              class='h-auto w-10 xl:w-[90px]'
+            />
+            <p
+              class='mt-[30px] text-xl font-semibold leading-[1.33] -tracking-[0.5px] lg:text-2xl'>
+              {clientWords}
+            </p>
+            <div class='mb-8 lg:mb-[50px]'>
+              <span class='block text-xl font-semibold'>{name}</span>
+              <span class='block'>{designation}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

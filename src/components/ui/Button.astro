@@ -1,0 +1,9 @@
+---
+const { link, text, css } = Astro.props;
+---
+
+<a
+  href={link}
+  class=`btn is-blue is-rounded btn-animation is-large group ${css}`
+  ><span>{text}</span></a
+>
