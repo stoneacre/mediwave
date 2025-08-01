@@ -56,7 +56,7 @@ function toggleMenu() {
   document.querySelector(".menu-overlay").classList.toggle("active");
 }
 function showSubMenu(hasChildren) {
-  for (let i = 0; submenuAll.length < i; i++) {
+  for (let i = 0; i < submenuAll.length; i++) {
     submenuAll[i].classList.remove("active");
   }
   subMenu = hasChildren.querySelector(".sub-menu");

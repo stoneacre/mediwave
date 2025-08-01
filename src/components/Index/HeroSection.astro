@@ -2,14 +2,14 @@
 import { Image } from "astro:assets";
 import ComingSoonForm from "../functional/ComingSoonForm";
 import HeroImage from "../ui/HeroImage.astro";
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 
 const { HeroSectionData } = Astro.props;
 const { header, description, image, PreviewVideo, form } =
-  HeroSectionData?.data;
+  HeroSectionData?.data || {};
 const {
   data: { web3AccessKey },
-} = await getEntryBySlug("site", "meta");
+} = await getEntry("site", "meta");
 ---
 
 <section class='section-hero'>

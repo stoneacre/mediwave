@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layout/Layout.astro";
 import { slug } from "github-slugger";
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 import PortfolioSlider from "../../components/Portfolio/PortfolioSlider.astro";
 import RelatedPortfolio from "../../components/Portfolio/RelatedPortfolio.astro";
 import BreadCumb from "../../components/ui/BreadCumb.astro";
@@ -25,11 +25,11 @@ export async function getStaticPaths() {
 }
 const { portfolioData } = Astro.props;
 const { title, image, category, client, duration, websiteLink } =
-  portfolioData?.data;
-const { Content } = await portfolioData?.render();
+  portfolioData?.data || {};
+const { Content } = await portfolioData?.render() || {};
 const {
   data: { sliderText, relatedProjectsText },
-} = await getEntryBySlug("portfolio", "index");
+} = await getEntry("portfolio", "index");
 const Relatedportfolio = portfolio
   .filter(
     (portfolioFilter) =>

@@ -1,8 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import { getEntryBySlug } from "astro:content";
-const ContentData = await getEntryBySlug("IndexPage", "content-2");
-const { header, image, points } = ContentData?.data;
+import { getEntry } from "astro:content";
+const ContentData = await getEntry("IndexPage", "content-2");
+const { header, image, points } = ContentData?.data || {};
 const { Content } = await ContentData.render();
 ---
 

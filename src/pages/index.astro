@@ -1,5 +1,5 @@
 ---
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 import Layout from "../layout/Layout.astro";
 import HeroSection from "../components/Index/HeroSection.astro";
 import Brand from "../components/Index/Brand.astro";
@@ -9,7 +9,7 @@ import PortfolioSection from "../components/Index/PortfolioSection.astro";
 import TestimonialSection from "../components/Index/TestimonialSection.astro";
 import FaqSection from "../components/Index/FaqSection.astro";
 import HorizontalLine from "../components/ui/HorizontalLine.astro";
-const HeroSectionData = await getEntryBySlug("IndexPage", "hero");
+const HeroSectionData = await getEntry("IndexPage", "hero");
 ---
 
 <Layout title='Home Page'>

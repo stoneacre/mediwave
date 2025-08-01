@@ -1,6 +1,6 @@
 ---
-import { getEntryBySlug } from "astro:content";
-const Testimonial = await getEntryBySlug("IndexPage", "testimonial");
+import { getEntry } from "astro:content";
+const Testimonial = await getEntry("IndexPage", "testimonial");
 import Header from "../ui/Heading.astro";
 import { Image } from "astro:assets";
 const { name, designation, clientWords, image } = Testimonial.data;

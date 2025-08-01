@@ -1,11 +1,11 @@
 ---
 import Button from "./Button.astro";
-import { getEntryBySlug } from "astro:content";
+import { getEntry } from "astro:content";
 import HorizontalLine from "./HorizontalLine.astro";
 import FooterPages from "./FooterPages.astro";
 import { Image } from "astro:assets";
 import Logo from "./Logo.astro";
-const FooterData = await getEntryBySlug("site", "footer");
+const FooterData = await getEntry("site", "footer");
 const {
   title,
   button,
