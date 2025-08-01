@@ -1,29 +1,21 @@
+// tina/config.ts
 import { defineConfig } from "tinacms";
-
-// Your hosting provider likely exposes this as an environment variable
-const branch =
-  process.env.GITHUB_BRANCH ||
-  process.env.VERCEL_GIT_COMMIT_REF ||
-  process.env.HEAD ||
-  "main";
-
-export default defineConfig({
+var branch = process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || "main";
+var config_default = defineConfig({
   branch,
-  
   // Get this from tina.io
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
   // Get this from tina.io
   token: process.env.TINA_TOKEN,
-
   build: {
     outputFolder: "admin",
-    publicFolder: "public",
+    publicFolder: "public"
   },
   media: {
     tina: {
       mediaRoot: "",
-      publicFolder: "public",
-    },
+      publicFolder: "public"
+    }
   },
   schema: {
     collections: [
@@ -36,22 +28,22 @@ export default defineConfig({
           {
             type: "string",
             name: "header",
-            label: "Header",
+            label: "Header"
           },
           {
             type: "string",
             name: "description",
-            label: "Description",
+            label: "Description"
           },
           {
             type: "image",
             name: "image",
-            label: "Image",
+            label: "Image"
           },
           {
             type: "string",
             name: "PreviewVideo",
-            label: "Preview Video URL",
+            label: "Preview Video URL"
           },
           {
             type: "object",
@@ -61,38 +53,38 @@ export default defineConfig({
               {
                 type: "string",
                 name: "placeholder",
-                label: "Placeholder Text",
+                label: "Placeholder Text"
               },
               {
                 type: "string",
                 name: "buttonText",
-                label: "Button Text",
+                label: "Button Text"
               },
               {
                 type: "string",
                 name: "text",
-                label: "Form Description",
-              },
-            ],
+                label: "Form Description"
+              }
+            ]
           },
           {
             type: "rich-text",
             name: "body",
             label: "Content",
-            isBody: true,
-          },
-        ],
+            isBody: true
+          }
+        ]
       },
       {
         name: "aboutPage",
-        label: "About Page Sections", 
+        label: "About Page Sections",
         path: "src/content/aboutPage",
         format: "mdx",
         fields: [
           {
             type: "string",
             name: "header",
-            label: "Header",
+            label: "Header"
           },
           {
             type: "object",
@@ -102,42 +94,42 @@ export default defineConfig({
               {
                 type: "string",
                 name: "text",
-                label: "Button Text",
+                label: "Button Text"
               },
               {
                 type: "string",
                 name: "link",
-                label: "Button Link",
-              },
-            ],
+                label: "Button Link"
+              }
+            ]
           },
           {
             type: "number",
             name: "SatisfiedClients",
-            label: "Satisfied Clients (in thousands)",
+            label: "Satisfied Clients (in thousands)"
           },
           {
             type: "number",
             name: "ActiveEngagement",
-            label: "Active Engagement",
+            label: "Active Engagement"
           },
           {
             type: "number",
             name: "SuccessProjects",
-            label: "Success Projects",
+            label: "Success Projects"
           },
           {
             type: "number",
             name: "AwardsWinning",
-            label: "Awards Winning",
+            label: "Awards Winning"
           },
           {
             type: "rich-text",
             name: "body",
             label: "Content",
-            isBody: true,
-          },
-        ],
+            isBody: true
+          }
+        ]
       },
       {
         name: "blogs",
@@ -149,25 +141,25 @@ export default defineConfig({
             type: "string",
             name: "title",
             label: "Title",
-            required: true,
+            required: true
           },
           {
             type: "datetime",
             name: "publishDate",
-            label: "Publish Date",
+            label: "Publish Date"
           },
           {
             type: "image",
             name: "image",
-            label: "Featured Image",
+            label: "Featured Image"
           },
           {
             type: "rich-text",
             name: "body",
             label: "Article Content",
-            isBody: true,
-          },
-        ],
+            isBody: true
+          }
+        ]
       },
       {
         name: "site",
@@ -178,20 +170,23 @@ export default defineConfig({
           {
             type: "string",
             name: "siteName",
-            label: "Site Name",
+            label: "Site Name"
           },
           {
             type: "string",
-            name: "description", 
-            label: "Site Description",
+            name: "description",
+            label: "Site Description"
           },
           {
             type: "image",
             name: "favicon",
-            label: "Favicon",
-          },
-        ],
-      },
-    ],
-  },
+            label: "Favicon"
+          }
+        ]
+      }
+    ]
+  }
 });
+export {
+  config_default as default
+};
