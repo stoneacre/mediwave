@@ -3,14 +3,13 @@ import { getEntry } from "astro:content";
 import { getCollection } from "astro:content";
 var portfolio = await getCollection("portfolio");
 portfolio = portfolio.filter((portfolioSingle) =>
-  portfolioSingle.slug.startsWith("portfolio-")
+  portfolioSingle.id.startsWith("portfolio-")
 );
 import PortfolioCard from "../ui/PortfolioCard.astro";
 import Button from "../ui/Button.astro";
 import { Image } from "astro:assets";
-const {
-  data: { indexHeader, button },
-} = await getEntry("portfolio", "index");
+const portfolioIndex = await getEntry("portfolio", "index");
+const { indexHeader, button } = portfolioIndex?.data || {};
 ---
 
 <section class='section-portfolio'>

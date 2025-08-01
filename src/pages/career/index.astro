@@ -7,7 +7,7 @@ import Button from "../../components/ui/Button.astro";
 import BreadCumb from "../../components/ui/BreadCumb.astro";
 var CareerData = await getCollection("career");
 CareerData = CareerData.filter((CareerSingle) =>
-  CareerSingle.slug.startsWith("career-")
+  CareerSingle.id.startsWith("career-")
 );
 var Categories: any = [];
 CareerData?.map(({ data: { category } }: any) => Categories.push(category));

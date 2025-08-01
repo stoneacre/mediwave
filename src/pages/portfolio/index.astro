@@ -5,7 +5,7 @@ import PortfolioSection from "../../components/functional/PortfolioSection";
 import BreadCumb from "../../components/ui/BreadCumb.astro";
 var portfolio = await getCollection("portfolio");
 portfolio = portfolio.filter((portfolioSingle) =>
-  portfolioSingle.slug.startsWith("portfolio-")
+  portfolioSingle.id.startsWith("portfolio-")
 );
 var Categories: any = [];
 portfolio?.map(({ data: { category } }: any) => Categories.push(category));

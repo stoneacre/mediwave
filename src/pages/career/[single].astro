@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layout/Layout.astro";
 import { slug } from "github-slugger";
-import { getEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
 import ContactForm from "../../components/functional/ContactForm";
 import BreadCumb from "../../components/ui/BreadCumb.astro";
 export async function getStaticPaths() {
@@ -14,13 +14,15 @@ export async function getStaticPaths() {
     };
   });
 }
-const {
-  data: { web3AccessKey },
-} = await getEntry("site", "meta");
+const siteData = await getEntry("site", "meta");
+const { web3AccessKey } = siteData?.data || {};
 const { careerSingle } = Astro.props;
 const { position, salaryRange, type, description, location } =
   careerSingle.data;
-const { Content } = await careerSingle.render();
+let Content;
+if (careerSingle) {
+  ({ Content } = await render(careerSingle));
+}
 const ContactDetail = await getEntry("contact", "index");
 const { mail, phone, address } = ContactDetail?.data || {};
 ---
@@ -69,7 +71,7 @@ const { mail, phone, address } = ContactDetail?.data || {};
                 </div>
               </div>
               <article class='grid gap-y-5'>
-                <Content />
+                {Content && <Content />}
               </article>
               <ul class='mt-[30px] flex flex-col gap-10'>
                 <li class='flex gap-5'>

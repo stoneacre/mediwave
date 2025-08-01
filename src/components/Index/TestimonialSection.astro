@@ -3,14 +3,14 @@ import { getEntry } from "astro:content";
 const Testimonial = await getEntry("IndexPage", "testimonial");
 import Header from "../ui/Heading.astro";
 import { Image } from "astro:assets";
-const { name, designation, clientWords, image } = Testimonial.data;
+const { name, designation, clientWords, image } = Testimonial?.data || {};
 ---
 
 <section class='section-testimonial'>
   <div class='bg-ColorOffWhite'>
     <div class='section-space'>
       <div class='container-custom'>
-        <Header heading={Testimonial.data.Header} MaxWidth='max-w-[625px]' />
+        <Header heading={Testimonial?.data?.Header} MaxWidth='max-w-[625px]' />
         <div
           class='grid items-center gap-10 lg:grid-cols-2 xl:gap-20 xxl:grid-cols-[1.1fr_minmax(0,_1fr)]'>
           <Image

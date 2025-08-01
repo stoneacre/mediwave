@@ -2,19 +2,19 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layout/Layout.astro";
 import { slug } from "github-slugger";
-import { getEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
 import PortfolioSlider from "../../components/Portfolio/PortfolioSlider.astro";
 import RelatedPortfolio from "../../components/Portfolio/RelatedPortfolio.astro";
 import BreadCumb from "../../components/ui/BreadCumb.astro";
 import { Image } from "astro:assets";
 var portfolio = await getCollection("portfolio");
 portfolio = portfolio.filter((portfolioSingle) =>
-  portfolioSingle.slug.startsWith("portfolio-")
+  portfolioSingle.id.startsWith("portfolio-")
 );
 export async function getStaticPaths() {
   var portfolio = await getCollection("portfolio");
   portfolio = portfolio.filter((portfolioSingle) =>
-    portfolioSingle.slug.startsWith("portfolio-")
+    portfolioSingle.id.startsWith("portfolio-")
   );
   return portfolio.map((portfolioData: any) => {
     return {
@@ -26,14 +26,16 @@ export async function getStaticPaths() {
 const { portfolioData } = Astro.props;
 const { title, image, category, client, duration, websiteLink } =
   portfolioData?.data || {};
-const { Content } = await portfolioData?.render() || {};
-const {
-  data: { sliderText, relatedProjectsText },
-} = await getEntry("portfolio", "index");
+let Content;
+if (portfolioData) {
+  ({ Content } = await render(portfolioData));
+}
+const portfolioIndex = await getEntry("portfolio", "index");
+const { sliderText, relatedProjectsText } = portfolioIndex?.data || {};
 const Relatedportfolio = portfolio
   .filter(
     (portfolioFilter) =>
-      portfolioFilter.slug !== "index" &&
+      portfolioFilter.id !== "index" &&
       portfolioFilter.data.category === portfolioData.data.category
   )
   .slice(0, 2);
@@ -91,7 +93,7 @@ const Relatedportfolio = portfolio
               </li>
             </ul>
             <div class='rich-text'>
-              <Content />
+              {Content && <Content />}
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import Layout from "../../layout/Layout.astro";
 import { slug } from "github-slugger";
 import FaqSection from "../../components/Index/FaqSection.astro";
@@ -7,7 +7,7 @@ import BreadCumb from "../../components/ui/BreadCumb.astro";
 import { Image } from "astro:assets";
 export async function getStaticPaths() {
   var Services = await getCollection("services");
-  Services = Services.filter((Service) => Service.slug.startsWith("service-"));
+  Services = Services.filter((Service) => Service.id.startsWith("service-"));
   return Services.map((service: any) => {
     return {
       params: { single: slug(service?.data?.title) },
@@ -17,7 +17,10 @@ export async function getStaticPaths() {
 }
 const { service } = Astro.props;
 const { title, image } = service.data;
-const { Content } = await service.render();
+let Content;
+if (service) {
+  ({ Content } = await render(service));
+}
 ---
 
 <Layout title={title}>
@@ -42,7 +45,7 @@ const { Content } = await service.render();
               class='mb-10 h-auto w-full rounded-[10px]'
             />
             <div class='rich-text'>
-              <Content />
+              {Content && <Content />}
             </div>
           </div>
         </div>

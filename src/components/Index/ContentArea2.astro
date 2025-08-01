@@ -1,9 +1,12 @@
 ---
 import { Image } from "astro:assets";
-import { getEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
 const ContentData = await getEntry("IndexPage", "content-2");
 const { header, image, points } = ContentData?.data || {};
-const { Content } = await ContentData.render();
+let Content;
+if (ContentData) {
+  ({ Content } = await render(ContentData));
+}
 ---
 
 <div
@@ -16,7 +19,7 @@ const { Content } = await ContentData.render();
         </h2>
       </div>
     </div>
-    <Content />
+    {Content && <Content />}
     <ul class='flex flex-col gap-5 font-semibold text-ColorBlack'>
       {
         points.map((point: string) => (

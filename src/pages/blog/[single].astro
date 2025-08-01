@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import { slug } from "github-slugger";
 import Layout from "../../layout/Layout.astro";
 import BlogAside from "../../components/Blog/BlogAside.astro";
@@ -18,7 +18,10 @@ export async function getStaticPaths() {
 const { blog } = Astro.props;
 const { data } = blog;
 const { title, date, author, category, image } = data;
-const { Content } = await blog.render();
+let Content;
+if (blog) {
+  ({ Content } = await render(blog));
+}
 ---
 
 <Layout title=''>
@@ -83,7 +86,7 @@ const { Content } = await blog.render();
                         class='mb-5 mt-8 line-clamp-2 font-body text-2xl font-bold leading-[1.4] -tracking-[1px] group-hover:text-ColorBlue lg:text-3xl'>
                         {title}
                       </h2>
-                      <Content />
+                      {Content && <Content />}
                     </div>
                   </div>
                 </article>

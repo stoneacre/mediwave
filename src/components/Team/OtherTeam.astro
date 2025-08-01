@@ -4,9 +4,7 @@ import Button from "../ui/Button.astro";
 import Heading from "../ui/Heading.astro";
 import { Image } from "astro:assets";
 const OtherTeamData = await getEntry("aboutPage", "team");
-const {
-  data: { members, header },
-} = OtherTeamData;
+const { members, header } = OtherTeamData?.data || {};
 ---
 
 <section class='section-team mt-10'>

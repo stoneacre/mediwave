@@ -7,9 +7,8 @@ import { getEntry } from "astro:content";
 const { HeroSectionData } = Astro.props;
 const { header, description, image, PreviewVideo, form } =
   HeroSectionData?.data || {};
-const {
-  data: { web3AccessKey },
-} = await getEntry("site", "meta");
+const siteData = await getEntry("site", "meta");
+const { web3AccessKey } = siteData?.data || {};
 ---
 
 <section class='section-hero'>

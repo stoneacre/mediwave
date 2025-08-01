@@ -1,13 +1,13 @@
 ---
 var Services = await getCollection("services");
-Services = Services.filter((Service) => Service.slug.startsWith("service-"));
+Services = Services.filter((Service) => Service.id.startsWith("service-"));
 const IndexData = await getEntry("services", "index");
 import { getEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import Header from "../ui/Heading.astro";
 import ServiceCard from "../ui/ServiceCard.astro";
 import { Image } from "astro:assets";
-const { indexheader } = IndexData.data;
+const { indexheader } = IndexData?.data || {};
 ---
 
 <section class='section-service'>

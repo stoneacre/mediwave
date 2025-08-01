@@ -1,5 +1,5 @@
 ---
-import { getEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
 import Button from "../ui/Button.astro";
 
 const Facts = await getEntry("aboutPage", "facts");
@@ -11,7 +11,10 @@ const {
   SuccessProjects,
   AwardsWinning,
 } = Facts?.data || {};
-const { Content } = await Facts.render();
+let Content;
+if (Facts) {
+  ({ Content } = await render(Facts));
+}
 ---
 
 <section class='section-fact'>
@@ -26,7 +29,7 @@ const { Content } = await Facts.render();
                 {header}
               </h2>
             </div>
-            <Content />
+            {Content && <Content />}
           </div>
           <Button
             link={button?.link}

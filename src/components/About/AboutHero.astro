@@ -1,10 +1,13 @@
 ---
-import { getEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
 import HeroImage from "../ui/HeroImage.astro";
 import { Image } from "astro:assets";
 
 const HeroData = await getEntry("aboutPage", "hero");
-const { Content } = await HeroData.render();
+let Content;
+if (HeroData) {
+  ({ Content } = await render(HeroData));
+}
 const { header, blockquote, person, videoLink, img } = HeroData?.data || {};
 ---
 
@@ -33,7 +36,7 @@ const { header, blockquote, person, videoLink, img } = HeroData?.data || {};
                   {header}
                 </h2>
               </div>
-              <Content />
+              {Content && <Content />}
               <div
                 class='my-7 h-px w-full bg-ColorBlack opacity-10 xl:my-10 xxl:my-14'>
               </div>

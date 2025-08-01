@@ -2,9 +2,8 @@
 import { getEntry } from "astro:content";
 import ContactForm from "../functional/ContactForm";
 import { Image } from "astro:assets";
-const {
-  data: { web3AccessKey },
-} = await getEntry("site", "meta");
+const siteData = await getEntry("site", "meta");
+const { web3AccessKey } = siteData?.data || {};
 const ContactDetails = await getEntry("contact", "index");
 const { header, description, client } = ContactDetails?.data || {};
 ---

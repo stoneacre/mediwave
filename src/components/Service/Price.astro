@@ -3,7 +3,7 @@ import { getEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import Heading from "../ui/Heading.astro";
 var PricingData = await getCollection("Pricing");
-PricingData = PricingData.filter((data) => data.slug.startsWith("plan-"));
+PricingData = PricingData.filter((data) => data.id.startsWith("plan-"));
 const IndexData = await getEntry("Pricing", "index");
 const { header } = IndexData?.data || {};
 ---

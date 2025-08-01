@@ -5,7 +5,7 @@ import FaqCard from "../ui/FaqCard.astro";
 import Header from "../ui/Heading.astro";
 import { getEntry } from "astro:content";
 const QNA = await getEntry("IndexPage", "qna");
-const { content, header, button } = QNA.data;
+const { content, header, button } = QNA?.data || {};
 ---
 
 <section class='section-faq'>
