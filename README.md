@@ -32,27 +32,33 @@ pnpm preview
 This project enforces code quality and consistency through automated tools:
 
 ### ESLint
+
 - **Purpose:** Catches JavaScript/TypeScript errors and enforces coding standards
 - **Config:** Modern flat config with Astro + accessibility rules
 - **Run:** `pnpm lint`
 
 ### Prettier
+
 - **Purpose:** Automatic code formatting for consistent style
 - **Config:** Default settings in `.prettierrc`
 - **Run:** `pnpm format` (or auto-format on save in your editor)
 
 ### Commitlint + Husky
+
 - **Purpose:** Enforces consistent commit message format
 - **Format:** `type: description` (e.g., `feat: add contact form`, `fix: resolve mobile menu bug`)
 - **Valid types:** `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`, `build`, `ci`, `perf`, `revert`
 - **Auto-runs:** On every commit via git hooks
 
 ### Pre-commit Hooks
+
 Automatically runs before each commit:
+
 1. **ESLint** - Catches code errors
 2. **Prettier** - Formats code consistently
 
 **New Developer Setup:**
+
 1. Clone the repo and run `pnpm install`
 2. Husky will automatically set up git hooks
 3. Your commits will be automatically checked for code quality
@@ -87,12 +93,12 @@ mediwave/
 
 ## 🧞 Development Commands
 
-| Command            | Action                                  |
-| :----------------- | :-------------------------------------- |
-| `pnpm i`           | Install dependencies                    |
-| `pnpm dev`         | Start dev server at `localhost:4321`    |
-| `pnpm build`       | Build for production with type checking |
-| `pnpm preview`     | Preview production build                |
-| `pnpm lint`        | Check code for errors                   |
-| `pnpm format`      | Format code with Prettier              |
-| `pnpm format:check`| Check if code is formatted correctly    |
+| Command             | Action                                  |
+| :------------------ | :-------------------------------------- |
+| `pnpm i`            | Install dependencies                    |
+| `pnpm dev`          | Start dev server at `localhost:4321`    |
+| `pnpm build`        | Build for production with type checking |
+| `pnpm preview`      | Preview production build                |
+| `pnpm lint`         | Check code for errors                   |
+| `pnpm format`       | Format code with Prettier               |
+| `pnpm format:check` | Check if code is formatted correctly    |
