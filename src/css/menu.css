@@ -8,8 +8,6 @@
   padding-top: 0px;
 }
 
-
-
 .brand-logo,
 .default-logo,
 .responsive-logo {
@@ -22,7 +20,7 @@
 .brand-logo,
 .default-logo,
 .responsive-logo {
-  @apply max-w-[128px] transition-all duration-[400ms] mr-9
+  @apply max-w-[128px] transition-all duration-[400ms] mr-9;
 }
 
 @media (min-width: 576px) {
@@ -130,7 +128,10 @@
 }
 
 @media (min-width: 992px) {
-  .site-header--menu-left .container-fluid .nav-item.has-megamenu:hover>.sub-menu {
+  .site-header--menu-left
+    .container-fluid
+    .nav-item.has-megamenu:hover
+    > .sub-menu {
     transform: translateX(0%) translateY(-10px);
     left: 0%;
     margin-left: 20px;
@@ -157,14 +158,14 @@
 }
 
 @media (min-width: 992px) {
-  .site-header>.container-fluid .sub-menu.megamenu {
+  .site-header > .container-fluid .sub-menu.megamenu {
     left: 50%;
     transform: translateX(-50%) translateY(10px);
   }
 }
 
 @media (min-width: 992px) {
-  .site-header>.container-fluid .nav-item.has-megamenu:hover>.sub-menu {
+  .site-header > .container-fluid .nav-item.has-megamenu:hover > .sub-menu {
     transform: translateX(-50%) translateY(-10px);
     left: 50%;
   }
@@ -393,16 +394,15 @@
   color: var(--heading-color);
   font-size: 16px;
   font-weight: 600;
-  font-style: normal;;
+  font-style: normal;
   letter-spacing: normal;
   position: relative;
-
 }
 .site-menu-main .nav-link-item--white {
   color: #fff;
 }
 
-.site-menu-main>.nav-item-has-children>.drop-trigger {
+.site-menu-main > .nav-item-has-children > .drop-trigger {
   line-height: 70px;
 }
 
@@ -504,20 +504,20 @@
   }
 }
 
-.site-menu-main .sub-menu--item>a {
+.site-menu-main .sub-menu--item > a {
   color: inherit;
   padding: 8px 20px;
   color: #000;
 }
 
 @media (min-width: 992px) {
-  .site-menu-main .sub-menu--item>a {
+  .site-menu-main .sub-menu--item > a {
     transition: 0.4s;
   }
 }
 
-.site-menu-main .sub-menu--item:hover>a {
-  color: #3147FF;
+.site-menu-main .sub-menu--item:hover > a {
+  color: #3147ff;
 }
 
 @media (min-width: 992px) {
@@ -621,7 +621,7 @@
 }
 
 @media (min-width: 992px) {
-  li.nav-item-has-children:hover>.sub-menu {
+  li.nav-item-has-children:hover > .sub-menu {
     visibility: visible;
     opacity: 1;
     z-index: 99;
@@ -631,7 +631,7 @@
   }
 }
 
-.site-menu-main>li .sub-menu>ul>li>a {
+.site-menu-main > li .sub-menu > ul > li > a {
   display: inline-block;
   padding: 10px 0;
   font-size: 15px;
@@ -641,7 +641,7 @@
   text-transform: capitalize;
 }
 
-.site-menu-main>li .sub-menu.mega-menu {
+.site-menu-main > li .sub-menu.mega-menu {
   left: 50%;
   transform: translateX(-50%);
 }
@@ -741,13 +741,13 @@
     transform: translate(0%);
   }
 
-  .site-menu-main>li {
+  .site-menu-main > li {
     line-height: 1;
     margin: 0;
     display: block;
   }
 
-  .site-menu-main>li>a {
+  .site-menu-main > li > a {
     line-height: 50px;
     height: 50px;
     padding: 0 50px 0 15px;
@@ -755,7 +755,7 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 
-  .site-menu-main>li>a i {
+  .site-menu-main > li > a i {
     position: absolute;
     height: 50px;
     width: 50px;
@@ -831,8 +831,8 @@
     overflow-y: auto;
   }
 
-  .site-menu-main>li .sub-menu.mega-menu,
-  .site-menu-main>li .sub-menu {
+  .site-menu-main > li .sub-menu.mega-menu,
+  .site-menu-main > li .sub-menu {
     visibility: visible;
     opacity: 1;
     position: absolute;
@@ -852,16 +852,16 @@
     overflow-x: hidden;
   }
 
-  .site-menu-main>li .sub-menu.active {
+  .site-menu-main > li .sub-menu.active {
     display: block;
   }
 
-  .site-menu-main>li .sub-menu>ul>li>a,
-  .site-menu-main>li .sub-menu.mega-menu>.list-item>ul>li>a {
+  .site-menu-main > li .sub-menu > ul > li > a,
+  .site-menu-main > li .sub-menu.mega-menu > .list-item > ul > li > a {
     display: block;
   }
 
-  .site-menu-main>li .sub-menu.mega-menu>.list-item>ul {
+  .site-menu-main > li .sub-menu.mega-menu > .list-item > ul {
     margin-bottom: 15px;
   }
 
@@ -940,11 +940,11 @@
 }
 
 @media (min-width: 992px) {
-  .reveal-header li.nav-item-has-children:hover>.sub-menu {
+  .reveal-header li.nav-item-has-children:hover > .sub-menu {
     top: 100%;
   }
 
-  .reveal-header li.nav-item-has-children:hover>.megamenu {
+  .reveal-header li.nav-item-has-children:hover > .megamenu {
     top: 112%;
   }
 }

@@ -112,13 +112,13 @@
   .is-pale-gold {
     @apply border-ColorPaleGold bg-ColorPaleGold text-ColorDenimDarkBlue hover:border-ColorPaleGold hover:bg-transparent hover:text-ColorPaleGold;
   }
-  .is-caribbean-green{
-    @apply border-ColorCaribbeanGreen bg-ColorCaribbeanGreen text-ColorMidnightMoss hover:bg-transparent hover:border-ColorCaribbeanGreen hover:text-ColorCaribbeanGreen ;
+  .is-caribbean-green {
+    @apply border-ColorCaribbeanGreen bg-ColorCaribbeanGreen text-ColorMidnightMoss hover:bg-transparent hover:border-ColorCaribbeanGreen hover:text-ColorCaribbeanGreen;
   }
-  .is-honey-suckle{
+  .is-honey-suckle {
     @apply border-ColorHoneySuckle bg-ColorHoneySuckle hover:bg-transparent text-[#2B13B9] hover:text-ColorHoneySuckle;
   }
-  .is-honey-suckle-2{
+  .is-honey-suckle-2 {
     @apply border-ColorHoneySuckle bg-ColorHoneySuckle hover:bg-transparent text-[#2B13B9] hover:text-ColorHoneySuckle hover:bg-[#2B13B9] hover:border-[#2B13B9];
   }
 
@@ -273,12 +273,12 @@
 }
 
 /* According - 5 */
-.accordion-item .accordion-icon-5  {
+.accordion-item .accordion-icon-5 {
   @apply bg-transparent transition-all duration-300;
- }
- 
- /* Accordion 6 */
- .accordion-item .accordion-icon-6 span {
+}
+
+/* Accordion 6 */
+.accordion-item .accordion-icon-6 span {
   @apply first:bg-black;
 }
 .accordion-item.active .accordion-icon-6 span {
@@ -289,17 +289,17 @@
   @apply -rotate-90 opacity-0 transition-all duration-500;
 }
 
-.accordion-item.active .accordion-icon-5  {
+.accordion-item.active .accordion-icon-5 {
   @apply bg-ColorMidnightMoss text-ColorCaribbeanGreen rotate-45;
- }
+}
 
 .accordion-item.active:has(.accordion-icon-4) {
   @apply first:rounded-tl-[10px] first:rounded-tr-[10px] last:rounded-bl-[10px] last:rounded-br-[10px];
 }
 
-.accordion-item.active:has(.accordion-icon-5)  {
+.accordion-item.active:has(.accordion-icon-5) {
   @apply bg-[#FFFCEF];
- }
+}
 
 .rich-text h5 {
   @apply mb-4;

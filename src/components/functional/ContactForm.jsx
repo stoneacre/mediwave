@@ -45,22 +45,23 @@ function ContactForm({ header, web3AccessKey }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} method='post'>
+    <form onSubmit={handleSubmit} method="post">
       <ToastContainer />
-      <div className='flex flex-col gap-6'>
-        <h5 className='text-xxl font-bold text-black'>{header}</h5>
+      <div className="flex flex-col gap-6">
+        <h5 className="text-xxl font-bold text-black">{header}</h5>
         <div>
           <label
-            htmlFor='name'
-            className='mb-[10px] block text-left font-semibold'>
+            htmlFor="name"
+            className="mb-[10px] block text-left font-semibold"
+          >
             Your name
           </label>
           <input
-            type='text'
-            name='name'
-            id='name'
-            placeholder='Enter your full name'
-            className='w-full rounded-[50px] border border-ColorBlack/50 px-[30px] py-[15px] outline-none transition-all duration-300 placeholder:text-ColorBlack/50 focus:border-ColorBlue'
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Enter your full name"
+            className="w-full rounded-[50px] border border-ColorBlack/50 px-[30px] py-[15px] outline-none transition-all duration-300 placeholder:text-ColorBlack/50 focus:border-ColorBlue"
             value={formData.name}
             onChange={handleChange}
             required
@@ -68,16 +69,17 @@ function ContactForm({ header, web3AccessKey }) {
         </div>
         <div>
           <label
-            htmlFor='email'
-            className='mb-[10px] block text-left font-semibold'>
+            htmlFor="email"
+            className="mb-[10px] block text-left font-semibold"
+          >
             Email address
           </label>
           <input
-            type='email'
-            name='email'
-            id='email'
-            placeholder='Enter your email address'
-            className='w-full rounded-[50px] border border-ColorBlack/50 px-[30px] py-[15px] outline-none transition-all duration-300 placeholder:text-ColorBlack/50 focus:border-ColorBlue'
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter your email address"
+            className="w-full rounded-[50px] border border-ColorBlack/50 px-[30px] py-[15px] outline-none transition-all duration-300 placeholder:text-ColorBlack/50 focus:border-ColorBlue"
             value={formData.email}
             onChange={handleChange}
             required
@@ -85,21 +87,23 @@ function ContactForm({ header, web3AccessKey }) {
         </div>
         <div>
           <label
-            htmlFor='message'
-            className='mb-[10px] block text-left font-semibold'>
+            htmlFor="message"
+            className="mb-[10px] block text-left font-semibold"
+          >
             Write your message
           </label>
           <textarea
-            name='message'
-            id='message'
-            placeholder='Write us your question here...'
-            className='min-h-[130px] w-full rounded-[30px] border border-ColorBlack/50 px-[30px] py-[15px] outline-none transition-all duration-300 placeholder:text-ColorBlack/50 focus:border-ColorBlue'
+            name="message"
+            id="message"
+            placeholder="Write us your question here..."
+            className="min-h-[130px] w-full rounded-[30px] border border-ColorBlack/50 px-[30px] py-[15px] outline-none transition-all duration-300 placeholder:text-ColorBlack/50 focus:border-ColorBlue"
             value={formData.message}
             onChange={handleChange}
-            required></textarea>
+            required
+          ></textarea>
         </div>
       </div>
-      <button type='submit' className='btn is-blue is-rounded is-large mt-8'>
+      <button type="submit" className="btn is-blue is-rounded is-large mt-8">
         Send Message
       </button>
     </form>

@@ -26,16 +26,20 @@ function SwiperComponent({ data }) {
         1600: {
           slidesPerView: 5,
         },
-      }}>
-      {data?.map((image,index) => {
+      }}
+    >
+      {data?.map((image, index) => {
         return (
-          <SwiperSlide key={`${image}-${index}`} className='!flex justify-center'>
+          <SwiperSlide
+            key={`${image}-${index}`}
+            className="!flex justify-center"
+          >
             <img
               src={image}
-              alt='brand-5'
-              width='186'
-              height='46'
-              className='h-auto w-fit'
+              alt="brand-5"
+              width="186"
+              height="46"
+              className="h-auto w-fit"
             />
           </SwiperSlide>
         );
