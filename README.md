@@ -1,5 +1,7 @@
 # Mediwave
 
+## TODO: REMOVE ROBOTS.TXT AFTER FINISHING DEVELOPMENT!
+
 Modern digital agency website built with Astro, React, and TailwindCSS.
 
 ## 🚀 Quick Start
