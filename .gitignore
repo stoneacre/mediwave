@@ -30,3 +30,7 @@ pnpm-debug.log*
 # Astro specific
 .astro/
 .tsbuildinfo
+
+# TinaCMS generated files
+tina/__generated__/
+tina/tina-lock.json
