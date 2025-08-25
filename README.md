@@ -22,12 +22,12 @@ pnpm preview
 
 ## 🛠️ Tech Stack
 
-- **Framework:** [Astro v5.12.8](https://astro.build)
-- **UI:** React 19 + TypeScript 5.9
+- **Framework:** [Astro](https://astro.build)
+- **UI:** React + TypeScript
 - **Styling:** TailwindCSS v4.1
-- **Content:** MDX
+- **Content:** MDX with TinaCMS
 - **Animations:** jos-animation
-- **Carousel:** Swiper v11
+- **Carousel:** Swiper
 
 ## ⚡ Development Tools & Code Quality
 
